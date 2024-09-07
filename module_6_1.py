@@ -1,46 +1,42 @@
 class Animal:
-    def __init__(self, name, alive=True, fed=False):
-        self.alive = alive
-        self.fed = fed
+    alive = True
+    fed = False
+
+    def __init__(self, name):
         self.name = name
+
+    def eat(self, food):
+        if food.edible is True:
+            print(f'{self.name} съел {food.name}')
+            self.fed = True
+        else:
+            print(f'{self.name} не стал есть {food.name}')
+            self.alive = False
 
 
 class Plant:
-    def __init__(self, name, edible=False):
-        self.edible = edible
+    edible = False
+
+    def __init__(self, name):
         self.name = name
 
 
 class Mammal(Animal):
     def eat(self, food):
-        if food.edible is True:
-            print(f'{self.name} съел {food.name}')
-            self.fed = True
-        else:
-            print(f'{self.name} не стал есть {food.name}')
-            self.alive = False
+        Animal.eat(self, food)
 
 
 class Predator(Animal):
     def eat(self, food):
-        if food.edible is True:
-            print(f'{self.name} съел {food.name}')
-            self.fed = True
-        else:
-            print(f'{self.name} не стал есть {food.name}')
-            self.alive = False
+        Animal.eat(self, food)
 
 
 class Flower(Plant):
-    def __init__(self, name):
-        self.edible = False
-        self.name = name
+    edible = False
 
 
 class Fruit(Plant):
-    def __init__(self, name):
-        self.edible = True
-        self.name = name
+    edible = True
 
 
 a1 = Predator('Волк с Уолл-Стрит')
