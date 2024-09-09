@@ -22,17 +22,15 @@ class Plant:
 
 
 class Mammal(Animal):
-    def eat(self, food):
-        Animal.eat(self, food)
+    pass
 
 
 class Predator(Animal):
-    def eat(self, food):
-        Animal.eat(self, food)
+    pass
 
 
 class Flower(Plant):
-    edible = False
+    pass
 
 
 class Fruit(Plant):
